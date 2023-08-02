@@ -1,9 +1,16 @@
 import Posts from './Posts';
+import { Suspense } from 'react';
 
 function App3() {
 	return (
 		<div className='App'>
-			<Posts />
+			<h1>App</h1>
+
+			{/* Suspense로 특정 컴포넌트 그룹을 묶으면 해당 그룹만 동기화 처리 */}
+			<Suspense fallback={<p>Post loading...</p>}>
+				<h1>Posts</h1>
+				<Posts />
+			</Suspense>
 		</div>
 	);
 }
