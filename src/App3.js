@@ -1,8 +1,25 @@
+import Posts from './Posts';
+
 function App3() {
-	return <div className='App'></div>;
+	return (
+		<div className='App'>
+			<Posts />
+		</div>
+	);
 }
 
 export default App3;
+
+/*
+	[ React18 - Suspense ]
+	- 각 페이지에 구성되어 있는 컴포넌트들을 동시에 호출하는 것이 아닌 영역별로 렌더링 시점을 동기화 처리
+	- 이전 버전까지는 클라이언트 컴포넌트에서만 제한적으로 동작되는 기술이었으나 18버전부터 SSR 방식의 컴포넌트에서도 활용이 가능하도록 개선
+		- 활용 예
+			-> 특정 컴포넌트가 렌더링 완료될때까지 다른 컴포넌트의 렌더링을 막고 이전 렌더링 컴포넌트 완료 후 동기적으로 렌더링 시작
+			-> 서버로부터 무거운 데이터를 fetching하는 컴포넌트의 경우 해당 컴포넌트 출력전까지 자동으로 로딩바 출력
+	- Suspense를 활용하기 위한 조건
+		- Suspense 동기화시키는 컴포넌트 내부에 promise 객체 생성 상태(pending, fulfilled, rejected)를 추적할 수 있어야 한다.
+*/
 
 /*
 	[ 기존의 CSR, SSR 방식의 차이 ]
