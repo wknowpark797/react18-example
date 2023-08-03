@@ -9,7 +9,7 @@ const fetchFlickr = async ({ queryKey }) => {
 	const method_interest = 'flickr.interestingness.getList';
 	const method_search = 'flickr.photos.search';
 	const method_user = 'flickr.people.getPhotos';
-	const num = 10;
+	const num = 100;
 	let url = '';
 
 	if (opt.type === 'interest') url = `${baseURL}&api_key=${key}&method=${method_interest}&per_page=${num}`;
